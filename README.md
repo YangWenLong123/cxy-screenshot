@@ -149,15 +149,38 @@ pm2 进程查看
 
 ## 教程
 
-- api: http://service.alongweb.top:43367/screenshot(post)
-- 参数
+- api: http://service.alongweb.top:43367/screenshot(Post)
+
+- 参数(Body)
+
   - url(截图 url) 必须
+
   - className (等待元素可见开始截图，不设置可能为空) 可选
 
-浏览器输入`http://service.alongweb.top:43367/screenshot?url=http://www.alongweb.top&className=VPFooter`
+### 测试一
+
+```js
+axios.post('http://service.alongweb.top:43367/screenshot',
+  data: {
+    url: 'http://www.alongweb.top'
+  }
+)
+```
+
+`浏览器查看`
 
 ![a](download.png)
 
-浏览器输入`http://service.alongweb.top:43367/screenshot?url=https://www.baidu.com`
+### 测试二
+
+```js
+axios.post('http://service.alongweb.top:43367/screenshot',
+  data: {
+    url: 'http://www.baidu.com'
+  }
+)
+```
+
+`浏览器查看`
 
 ![b](download2.png)
