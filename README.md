@@ -105,6 +105,36 @@ export class creatBrowser {
 }
 ```
 
+## 部署
+
+`linux服务器`,新建网站域名，文件上传域名目录下，宝塔面板如下。
+![Alt text](image.png)
+
+安装依赖
+
+```bash
+pnpm i
+```
+
+打包
+
+```bash
+pnpm build
+```
+
+运行
+
+```bash
+cs dist
+pm2 start ecosystem.config.js --env prod
+```
+
+端口放行
+![Alt text](image-1.png)
+
+pm2 进程查看
+![Alt text](image-2.png)
+
 ## 教程
 
 - api: http://service.alongweb.top:43367/screenshot
