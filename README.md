@@ -130,7 +130,7 @@ pm2 start ecosystem.config.js --env prod
 ```
 
 端口放行
-![Alt text](image-1.png)
+![Alt text](image-3.png)
 
 pm2 进程查看
 ![Alt text](image-2.png)
