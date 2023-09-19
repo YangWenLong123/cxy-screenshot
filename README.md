@@ -139,11 +139,16 @@ pm2 进程查看
 
 - api: http://service.alongweb.top:43367/screenshot
 - 参数
-  - url(截图 url 域名)
-  - path(路由 home，如http://www.alongweb.top/home)
-  - hash (是否为 hash)
-  - token (登录 token)
+  - url(截图 url 域名) 必须
+  - path(路由 home，如http://www.alongweb.top/home) 可选
+  - hash (是否为 hash) 可选，默认/
+  - token (登录 token) 可选
+  - className (等待元素可见开始截图，不设置可能为空) 可选
 
-浏览器输入`http://service.alongweb.top:43367/screenshot?url=http://www.alongweb.top`
+浏览器输入`http://service.alongweb.top:43367/screenshot?url=http://www.alongweb.top&className=VPFooter`
 
 ![a](download.png)
+
+浏览器输入`http://service.alongweb.top:43367/screenshot?url=https://www.baidu.com`
+
+![b](download2.png)

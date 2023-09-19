@@ -1,7 +1,7 @@
 /*
  * @Author: along
  * @Date: 2022-04-28 10:28:25
- * @LastEditTime: 2023-09-18 18:04:03
+ * @LastEditTime: 2023-09-19 16:08:08
  * @LastEditors: along
  * @Description: 接口业务逻辑
  * @FilePath: /cxy-screenshot/src/service/service.ts
@@ -11,7 +11,6 @@ import { Injectable } from '@nestjs/common';
 const puppeteer = require('puppeteer');
 import { Request, Response } from 'express';
 import { globalService } from '../utils/global.service';
-import { creatBrowser } from '../utils/browser.server';
 
 @Injectable()
 export class AppService {
@@ -23,9 +22,13 @@ export class AppService {
       const path = req.query?.path ?? '';
       const hash = req.query?.hash ?? false;
       const token = req.query?.token ?? '';
+      const className = req.query?.className ?? '';
 
       const tourl =
-        url + (hash ? '/#/' : '') + path + (token ? '?token=' + token : '');
+        url +
+        (hash ? '/#/' : '') +
+        (path ? '/' + path : '') +
+        (token ? '?token=' + token : '');
 
       console.log('tourl', tourl);
 
@@ -52,9 +55,11 @@ export class AppService {
       // 打开url地址
       await page.goto(tourl, {});
 
-      await page.waitForSelector('.copyright');
+      if (className) {
+        await page.waitForSelector(`.${className}`);
+      }
 
-      await page.waitForTimeout(1000);
+      await page.waitForTimeout(500);
 
       // 开始截图
       const base64Str = await page.screenshot({
