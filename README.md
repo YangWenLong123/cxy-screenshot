@@ -129,6 +129,18 @@ cs dist
 pm2 start ecosystem.config.js --env prod
 ```
 
+字体下载
+
+```bash
+sudo yum install wqy-microhei-fonts.noarch -y
+```
+
+浏览器下载
+
+```bash
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+```
+
 端口放行
 ![Alt text](image-3.png)
 
