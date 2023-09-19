@@ -70,6 +70,9 @@ devDependencies:
   puppeteer:
     specifier: ^21.2.1
     version: 21.2.1(typescript@4.9.5)
+  qs:
+    specifier: ^6.11.2
+    version: 6.11.2
   source-map-support:
     specifier: ^0.5.20
     version: r2.cnpmjs.org/source-map-support@0.5.21

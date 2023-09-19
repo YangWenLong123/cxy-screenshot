@@ -154,6 +154,8 @@ pm2 进程查看
 
 - api: http://service.alongweb.top:43367/screenshot(Post)
 
+- 参数(params) 可选
+
 - 参数(Body)
 
   - url(截图 url) 必须

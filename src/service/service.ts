@@ -1,7 +1,7 @@
 /*
  * @Author: along
  * @Date: 2022-04-28 10:28:25
- * @LastEditTime: 2023-09-19 18:04:17
+ * @LastEditTime: 2023-09-19 18:43:08
  * @LastEditors: along
  * @Description: 接口业务逻辑
  * @FilePath: /cxy-screenshot/src/service/service.ts
@@ -12,14 +12,22 @@ const puppeteer = require('puppeteer');
 import { Request, Response } from 'express';
 import { globalService } from '../utils/global.service';
 
+const Qs = require('qs');
+
 @Injectable()
 export class AppService {
   async pdfHandler(req: Request, res: Response) {
     try {
-      console.log('query', req.body);
+      console.log('query', req.query);
+      console.log('body', req.body);
 
-      const tourl = req.body?.url;
+      const query = req.query;
 
+      let tourl = req.body?.url;
+
+      if (Object.keys(query)) {
+        tourl += '?' + Qs.stringify(query);
+      }
       console.log('tourl', tourl);
 
       //从连接池里获取浏览器实例
