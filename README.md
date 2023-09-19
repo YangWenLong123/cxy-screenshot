@@ -108,6 +108,7 @@ export class creatBrowser {
 ## 部署
 
 `linux服务器`,新建网站域名，文件上传域名目录下，宝塔面板如下。
+
 ![Alt text](image.png)
 
 安装依赖
@@ -142,9 +143,11 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 ```
 
 端口放行
+
 ![Alt text](image-3.png)
 
 pm2 进程查看
+
 ![Alt text](image-2.png)
 
 ## 教程
@@ -167,7 +170,7 @@ axios.post('http://service.alongweb.top:43367/screenshot',
 )
 ```
 
-`浏览器查看`
+浏览器查看
 
 ![a](download.png)
 
@@ -181,6 +184,6 @@ axios.post('http://service.alongweb.top:43367/screenshot',
 )
 ```
 
-`浏览器查看`
+浏览器查看
 
 ![b](download2.png)
