@@ -1,7 +1,7 @@
 /*
  * @Author: along
  * @Date: 2022-04-28 10:28:25
- * @LastEditTime: 2023-09-19 16:08:08
+ * @LastEditTime: 2023-09-19 18:04:17
  * @LastEditors: along
  * @Description: 接口业务逻辑
  * @FilePath: /cxy-screenshot/src/service/service.ts
@@ -16,19 +16,9 @@ import { globalService } from '../utils/global.service';
 export class AppService {
   async pdfHandler(req: Request, res: Response) {
     try {
-      console.log('query', req.query);
+      console.log('query', req.body);
 
-      const url = req.query?.url ?? '';
-      const path = req.query?.path ?? '';
-      const hash = req.query?.hash ?? false;
-      const token = req.query?.token ?? '';
-      const className = req.query?.className ?? '';
-
-      const tourl =
-        url +
-        (hash ? '/#/' : '') +
-        (path ? '/' + path : '') +
-        (token ? '?token=' + token : '');
+      const tourl = req.body?.url;
 
       console.log('tourl', tourl);
 
@@ -55,8 +45,8 @@ export class AppService {
       // 打开url地址
       await page.goto(tourl, {});
 
-      if (className) {
-        await page.waitForSelector(`.${className}`);
+      if (req.body?.className) {
+        await page.waitForSelector(`.${req.body?.className}`);
       }
 
       await page.waitForTimeout(500);

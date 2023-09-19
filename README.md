@@ -149,12 +149,9 @@ pm2 进程查看
 
 ## 教程
 
-- api: http://service.alongweb.top:43367/screenshot
+- api: http://service.alongweb.top:43367/screenshot(post)
 - 参数
-  - url(截图 url 域名) 必须
-  - path(路由 home，如http://www.alongweb.top/home) 可选
-  - hash (是否为 hash) 可选，默认/
-  - token (登录 token) 可选
+  - url(截图 url) 必须
   - className (等待元素可见开始截图，不设置可能为空) 可选
 
 浏览器输入`http://service.alongweb.top:43367/screenshot?url=http://www.alongweb.top&className=VPFooter`
