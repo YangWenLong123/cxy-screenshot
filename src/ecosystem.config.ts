@@ -3,11 +3,8 @@
  * @Description:
  * @Date: 2023-03-31 11:05:33
  * @LastEditors: along
- * @LastEditTime: 2023-09-18 14:36:59
+ * @LastEditTime: 2023-09-19 10:33:34
  * @FilePath: /cxy-screenshot/src/ecosystem.config.ts
- */
-/**
- * @description pm2配置文件，文件名称不可修改
  */
 module.exports = {
   apps: [
