@@ -1,7 +1,7 @@
 /*
  * @Author: along
  * @Date: 2022-04-28 10:28:25
- * @LastEditTime: 2023-09-20 09:06:21
+ * @LastEditTime: 2023-09-20 10:07:15
  * @LastEditors: along
  * @Description: 接口业务逻辑
  * @FilePath: /cxy-screenshot/src/service/service.ts
@@ -21,13 +21,11 @@ export class AppService {
       console.log('query', req.query);
       console.log('body', req.body);
 
-      const query = req.query;
+      let tourl = req.body?.url; //打开页面url
+      const fullPage = req.query?.fullPage ? req.query?.fullPage : true; //是否为滚动截图，默认true
 
-      let tourl = req.body?.url;
+      if (Object.keys(req.query).length) tourl += '?' + Qs.stringify(req.query);
 
-      if (Object.keys(query)) {
-        tourl += '?' + Qs.stringify(query);
-      }
       console.log('tourl', tourl);
 
       //从连接池里获取浏览器实例
@@ -48,7 +46,15 @@ export class AppService {
       // });
 
       // 设置截图可视窗带下
-      // await page.setViewport({ width, height });
+      const viewport: any = {};
+      if (req.query?.width) {
+        viewport.width = req.query?.width;
+      }
+      if (req.query?.height) {
+        viewport.height = req.query?.height;
+      }
+
+      if (Object.keys(viewport).length) await page.setViewport(viewport);
 
       // 打开url地址
       await page.goto(tourl, { waitUntil: 'networkidle0', timeout: 0 });
@@ -57,6 +63,10 @@ export class AppService {
         await page.waitForSelector(`.${req.body?.className}`);
       }
 
+      // const h = await page.$eval('body', (el) => el.offsetHeight);
+
+      // console.log('h', h);
+
       await page.waitForTimeout(500);
 
       // 开始截图
@@ -64,7 +74,7 @@ export class AppService {
         type: 'webp',
         quality: 100,
         encoding: 'base64',
-        fullPage: true,
+        fullPage: fullPage,
       });
 
       // 返回给前端

@@ -3,7 +3,7 @@
  * @Description:
  * @Date: 2023-03-31 11:05:33
  * @LastEditors: along
- * @LastEditTime: 2023-09-19 10:33:34
+ * @LastEditTime: 2023-09-20 09:39:51
  * @FilePath: /cxy-screenshot/src/ecosystem.config.ts
  */
 module.exports = {
@@ -17,17 +17,17 @@ module.exports = {
       max_memory_restart: '30720M', //堆内存30G自动重启，不会中断服务，已测试
       env: {
         //dev环境
-        PORT: 43365,
+        PORT: 43367,
         NODE_ENV: 'dev',
       },
       env_test: {
         //测试环境
-        PORT: 43365,
+        PORT: 43367,
         NODE_ENV: 'test',
       },
       env_uat: {
         //uat环境
-        PORT: 43369,
+        PORT: 43367,
         NODE_ENV: 'uat',
       },
       env_prod: {
