@@ -150,17 +150,31 @@ pm2 进程查看
 
 ![Alt text](image-2.png)
 
-## 教程
+## 接口参数
 
-- api: http://service.alongweb.top:43367/screenshot(Post)
+`url`
 
-- 参数(params) 可选
+```bash
+POST http://service.alongweb.top:43367/screenshot
+```
 
-- 参数(Body)
+`params`
 
-  - url(截图 url) 必须
+| **key**  | **类型** | **默认值** | **说明**                                 |
+| -------- | -------- | ---------- | ---------------------------------------- |
+| fullPage | boolean  | true       | 是否滚动截屏                             |
+| width    | number   | -          | 自定义截屏宽度, 默认不设置               |
+| height   | number   | -          | 自定义截屏高度 ,默认不设置               |
+| -        | -        | -          | 可自定义其他参数,会拼接在打开页面 url 上 |
 
-  - className (等待元素可见开始截图，不设置可能为空) 可选
+`body`
+
+| **key**   | **类型** | **默认值** | **说明**                         |
+| --------- | -------- | ---------- | -------------------------------- |
+| url       | string   | ''         | 打开页面 url,必传                |
+| className | string   | -          | 等待元素加载完成，开始截屏，可传 |
+
+## 案例
 
 ### 测试一
 
