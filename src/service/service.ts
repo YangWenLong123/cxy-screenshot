@@ -1,7 +1,7 @@
 /*
  * @Author: along
  * @Date: 2022-04-28 10:28:25
- * @LastEditTime: 2023-09-19 18:43:08
+ * @LastEditTime: 2023-09-20 09:06:21
  * @LastEditors: along
  * @Description: 接口业务逻辑
  * @FilePath: /cxy-screenshot/src/service/service.ts
@@ -51,7 +51,7 @@ export class AppService {
       // await page.setViewport({ width, height });
 
       // 打开url地址
-      await page.goto(tourl, {});
+      await page.goto(tourl, { waitUntil: 'networkidle0', timeout: 0 });
 
       if (req.body?.className) {
         await page.waitForSelector(`.${req.body?.className}`);
