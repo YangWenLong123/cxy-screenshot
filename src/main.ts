@@ -1,7 +1,7 @@
 /*
  * @Author: along
  * @Date: 2022-04-28 10:28:25
- * @LastEditTime: 2023-09-20 09:39:43
+ * @LastEditTime: 2023-10-23 17:40:26
  * @LastEditors: along
  * @Description: 入口文件
  * @FilePath: /cxy-screenshot/src/main.ts
@@ -17,7 +17,7 @@ import * as cors from 'cors';
   const app = await NestFactory.create(AppModule);
 
   // # -----------------全局变量配置
-  globalService.MAX_WSE = 2; //默认设置启动浏览器个数
+  globalService.MAX_WSE = 5; //默认设置启动浏览器个数
   globalService.ENV = 43367; //默认端口配置(不在打包文件中运行，端口号手动修改)
 
   app.use(
